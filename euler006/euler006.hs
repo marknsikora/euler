@@ -5,5 +5,4 @@ euler006 =
       squareOfSum = square $ sum [1..100]
   in squareOfSum - sumOfSquares
 
-main :: IO ()
 main = do putStrLn $ show euler006
