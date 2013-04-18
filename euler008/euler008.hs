@@ -11,7 +11,7 @@ productFold :: Num a => Int -> [a] -> [a]
 productFold _ [] = []
 productFold n all@(_:xs) = 
   let partialList = takeOrNone n all
-  in  product partialList : (productFold n xs)
+  in  product partialList : productFold n xs
 
 main = do
   str <- readFile "number.txt"
