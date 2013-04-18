@@ -7,4 +7,4 @@ euler004 = maximum [ z | x <- [999,998..100],
                          let z = x*y,
                          isPalindrome $ show z ]
 
-main = do print euler004
+main = print euler004

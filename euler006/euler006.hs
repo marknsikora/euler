@@ -5,4 +5,4 @@ euler006 =
       squareOfSum = square $ sum [1..100]
   in squareOfSum - sumOfSquares
 
-main = do print euler006
+main = print euler006

@@ -6,4 +6,4 @@ euler013 = do
   let numbers = map read $ lines str
   return . read . take 10 . show . sum $ numbers
 
-main = do euler013 >>= print
+main = euler013 >>= print

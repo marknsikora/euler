@@ -5,4 +5,4 @@ euler016 =
   let separateDigits x = map Char.digitToInt $ show x
   in sum $ separateDigits (2^1000)
 
-main = do print euler016
+main = print euler016

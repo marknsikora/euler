@@ -7,4 +7,4 @@ fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
 euler002 :: Int
 euler002 = sum $ filter even $ takeWhile (<maxCount) fibs
 
-main = do print euler002
+main = print euler002

@@ -15,4 +15,4 @@ tripletProduct (a,b,c) = a * b * c
 euler009 :: Integral a => a
 euler009 = tripletProduct . head . pythagoreanTriplets $ 1000
 
-main = do print euler009
+main = print euler009
