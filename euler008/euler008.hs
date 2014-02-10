@@ -1,11 +1,13 @@
 import Data.Char (digitToInt)
 
 takeOrNone :: Int -> [a] -> [a]
-takeOrNone n xs =
-  if length taken == n
-    then taken
-    else []
-  where taken = take n xs
+takeOrNone _ [] = []
+takeOrNone 0 _ = []
+takeOrNone 1 (x:xs) = [x]
+takeOrNone n (x:xs) =
+  case takeOrNone (pred n) xs of
+    [] -> []
+    ys -> x:ys
 
 productFold :: Num a => Int -> [a] -> [a]
 productFold _ [] = []
