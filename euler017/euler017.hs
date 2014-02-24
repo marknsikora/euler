@@ -28,18 +28,22 @@ numberLetterCount 70 = 7 -- seventy
 numberLetterCount 80 = 6 -- eighty
 numberLetterCount 90 = 6 -- ninety
 numberLetterCount n
-  | n < 100 = let ones = numberLetterCount $ n `mod` 10
-                  tens = numberLetterCount $ (n `div` 10) * 10
+  | n < 100 = let (tens, ones) = seperateOn 10
               in tens + ones
   | n < 1000 = case () of
-    _ | n `mod` 100 == 0 -> let hundreds = numberLetterCount $ n `div` 100
-                       in  hundreds + 7 -- n hundred
-      | otherwise -> let tens     = numberLetterCount $ n `mod` 100
-                         hundreds = numberLetterCount $ (n `div` 100) * 100
+    _ | n `mod` 100 == 0 -> let hundreds = chompOff 100
+                            in  hundreds + 7 -- n hundred
+      | otherwise -> let (hundreds, tens) = seperateOn 100
                      in hundreds + 3 + tens -- hundreds and tens
   | n < 1000000 = case () of
-    _ | n `mod` 1000 == 0 -> let thousands = numberLetterCount $ n `div` 1000
+    _ | n `mod` 1000 == 0 -> let thousands = chompOff 1000
                              in thousands + 8 -- n thousand
+  where
+    seperateOn x = let upper = numberLetterCount $ (n `div` x) * x
+                       lower = numberLetterCount $ n `mod` x
+                   in (upper, lower)
+    chompOff x = numberLetterCount $ n `div` x
+
 euler017 :: Int
 euler017 = sum . map numberLetterCount $ [1..1000]
 
