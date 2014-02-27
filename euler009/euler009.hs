@@ -12,7 +12,8 @@ pythagoreanTriplets n = do
 tripletProduct :: Integral a => (a,a,a) -> a
 tripletProduct (a,b,c) = a * b * c
 
-euler009 :: Integral a => a
+euler009 :: Integer
 euler009 = tripletProduct . head . pythagoreanTriplets $ 1000
 
+main :: IO ()
 main = print euler009

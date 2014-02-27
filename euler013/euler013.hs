@@ -1,10 +1,9 @@
 import Control.Applicative
-import Data.Char (digitToInt)
 
-euler013 ss =
-  let numbers = map read ss
-  in take 10 . show . sum $ numbers
+euler013 :: [Integer] -> String
+euler013 = take 10 . show . sum
 
+main :: IO ()
 main = do
-  numbers <- lines <$> readFile "numbers.txt"
+  numbers <- map read . lines <$> readFile "numbers.txt"
   putStrLn $ euler013 numbers

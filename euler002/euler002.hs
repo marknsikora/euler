@@ -1,10 +1,8 @@
-maxCount :: Int
-maxCount = 4000000
-
-fibs :: (Integral a) => [a]
+fibs :: [Integer]
 fibs = 0 : 1 : zipWith (+) fibs (tail fibs)
 
-euler002 :: Int
-euler002 = sum $ filter even $ takeWhile (<maxCount) fibs
+euler002 :: Integer
+euler002 = sum . filter even . takeWhile (<4000000) $ fibs
 
+main :: IO ()
 main = print euler002
