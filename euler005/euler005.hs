@@ -1,5 +1,5 @@
-euler005 :: Int
-euler005 = foldr1 lcm [1..20]
+euler005 :: Int -> Int
+euler005 n = foldr1 lcm [1..n]
 
 main :: IO ()
-main = print euler005
+main = print $ euler005 20

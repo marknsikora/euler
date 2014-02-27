@@ -5,8 +5,8 @@ fact n = product [1..n']
   where
     n' = fromIntegral n
 
-euler020 :: Int
-euler020 = sum . map digitToInt . show . fact $ 100
+euler020 :: Int -> Int
+euler020 = sum . map digitToInt . show . fact
 
 main :: IO ()
-main = print euler020
+main = print $ euler020 100

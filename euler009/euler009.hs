@@ -8,7 +8,7 @@ pythagoreanTriplets n = do
   guard (a < b)
   guard (c*c == a*a + b*b)
   return (a,b,c)
-  
+
 tripletProduct :: Integral a => (a,a,a) -> a
 tripletProduct (a,b,c) = a * b * c
 

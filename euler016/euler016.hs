@@ -1,11 +1,11 @@
 import Data.Bits
 import Data.Char(digitToInt)
 
-euler016 :: Int
-euler016 =
+euler016 :: Int -> Int
+euler016 n =
   let separateDigits x = map digitToInt . show $ x
-      number = 1 `shiftL` 1000 :: Integer
+      number = 1 `shiftL` n :: Integer
   in sum . separateDigits $ number
 
 main :: IO ()
-main = print euler016
+main = print $ euler016 1000

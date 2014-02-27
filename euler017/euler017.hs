@@ -47,8 +47,8 @@ numberLetterCount n = case n of
                      in (upper, lower)
       chompOff x = numberLetterCount $ n `div` x
 
-euler017 :: Int
-euler017 = sum . map numberLetterCount $ [1..1000]
+euler017 :: Int -> Int
+euler017 n = sum . map numberLetterCount $ [1..n]
 
 main :: IO ()
-main = print euler017
+main = print $ euler017 1000
